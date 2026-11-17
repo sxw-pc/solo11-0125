@@ -1,0 +1,15 @@
+{
+  "source_id": "recall-1",
+  "revision": 1,
+  "published_at": "2026-05-30T00:00:00Z",
+  "effective_from": "2026-06-01T00:00:00Z",
+  "effective_until": "2026-07-01T00:00:00Z",
+  "payload": {
+    "authority": "regulator",
+    "action": "recall",
+    "lots": [
+      "L-101"
+    ],
+    "withdraw_by": "2026-06-02T00:00:00Z"
+  }
+}

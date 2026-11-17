@@ -1,0 +1,15 @@
+{
+  "case_id": "inventory-1",
+  "at": "2026-06-01T16:00:00Z",
+  "receipts": [
+    {
+      "event_key": "withdraw-D1",
+      "target": "D1",
+      "at": "2026-06-01T15:00:00Z",
+      "version": 1,
+      "amount": 5,
+      "lot": "L-100-A",
+      "seal": "WH-1"
+    }
+  ]
+}

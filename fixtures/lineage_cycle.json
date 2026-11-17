@@ -1,0 +1,18 @@
+{
+  "case_id": "inventory-cycle",
+  "source_id": "recall-1",
+  "at": "2026-06-01T08:00:00Z",
+  "facts": {
+    "lot": "L-100-A",
+    "parents": {
+      "L-100-A": [
+        "L-100"
+      ],
+      "L-100": [
+        "L-100-A"
+      ]
+    },
+    "units": 5,
+    "distributor": "D1"
+  }
+}
