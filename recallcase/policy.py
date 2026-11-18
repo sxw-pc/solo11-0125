@@ -2,7 +2,7 @@
 TABLES={"notice":"recall_notice","revision":"lot_scope","case":"inventory_case",
 "assessment":"lineage_assessment","obligation":"withdrawal_obligation","receipt":"withdrawal_receipt"}
 DEMO={"adopt":"recall_normal.json","assess":"lineage_normal.json","settle":"withdraw_normal.json"}
-EXTRA_TABLES=["stock_lot","transfer_order"]
+EXTRA_TABLES=["stock_lot","transfer_order","complaint_conflict","complaint_record"]
 def validate_notice(doc):
     p=doc["payload"]
     if p.get("authority")!="regulator":return "invalid","untrusted_recall_authority"

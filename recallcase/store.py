@@ -38,6 +38,17 @@ def connect(path):
       event_key TEXT PRIMARY KEY, obligation_id TEXT NOT NULL, at TEXT NOT NULL,
       version INTEGER, amount INTEGER NOT NULL, payload TEXT NOT NULL,
       digest TEXT NOT NULL, verdict TEXT NOT NULL, reason TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS complaint_source(
+      source_id TEXT NOT NULL, version INTEGER NOT NULL, digest TEXT NOT NULL,
+      raw BLOB NOT NULL, PRIMARY KEY(source_id,version));
+    CREATE TABLE IF NOT EXISTS complaint_conflict(
+      id INTEGER PRIMARY KEY, source_id TEXT NOT NULL, version INTEGER NOT NULL,
+      digest TEXT NOT NULL, reason TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS complaint_record(
+      id TEXT PRIMARY KEY, source_id TEXT NOT NULL, source_version INTEGER NOT NULL,
+      channel TEXT NOT NULL, reported_at TEXT NOT NULL, product TEXT NOT NULL,
+      lot_text TEXT NOT NULL, defect_code TEXT NOT NULL, case_ref TEXT NOT NULL,
+      digest TEXT NOT NULL);
     """)
     return db
 

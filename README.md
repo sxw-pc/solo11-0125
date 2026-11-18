@@ -28,3 +28,7 @@ python -m pytest -q
 
 一批库存分布于多个渠道时，输入 `facts.channels` 的数量必须合计原库存；每个渠道形成独立下架义务。一个渠道回执完成但另一个缺失仍为部分完成，直到所有渠道各自提供正确批号、封签和数量证明。
 
+## 离线质量投诉采集
+
+`complaint-import --db state.db --input fixtures/complaint_normal.json` 将虚构热线和经销商记录保存为独立证据。来源版本与原始字节固定，同版本异文记为冲突，重复导入不增加记录。`complaint-watch --db state.db --threshold 2` 按明确的 case_ref 去重，只给出按产品、批号原文和缺陷代码分组的初步观察数。这条观察线不更改正式召回范围或下架义务。
+

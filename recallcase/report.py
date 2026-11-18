@@ -26,9 +26,12 @@ def report(db_path,out=None):
     conflicts=[dict(x) for x in db.execute("SELECT source_id,revision,digest,reason FROM source_conflict ORDER BY id")]
     auxiliary={name:[dict(x) for x in db.execute(f"SELECT * FROM {name} ORDER BY 1")]
                for name in EXTRA_TABLES if db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",(name,)).fetchone()}
+    complaint_evidence=[dict(x) for x in db.execute(
+        "SELECT source_id,version,digest FROM complaint_source ORDER BY source_id,version"
+    )]
     db.close()
     result={"notices":notices,"cases":cases,"source_evidence":evidence,"source_conflicts":conflicts,
-            "auxiliary":auxiliary}
+            "complaint_evidence":complaint_evidence,"auxiliary":auxiliary}
     if out:
         target=Path(out);target.parent.mkdir(parents=True,exist_ok=True)
         temp=target.with_name(target.name+".pending")

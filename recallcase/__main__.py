@@ -6,6 +6,8 @@ from .adoption import adopt
 from .assessment import assess
 from .settlement import settle
 from .report import report
+from .complaints import import_complaints
+from .signals import complaint_watch
 
 def main():
     p=argparse.ArgumentParser()
@@ -17,6 +19,8 @@ def main():
     d=sub.add_parser("demo");d.add_argument("--workdir")
     sl=sub.add_parser("stock-load");sl.add_argument("--db",required=True);sl.add_argument("--input",required=True)
     tr=sub.add_parser("transfer");tr.add_argument("--db",required=True);tr.add_argument("--id",required=True);tr.add_argument("--source",required=True);tr.add_argument("--from-distributor",required=True);tr.add_argument("--to-distributor",required=True);tr.add_argument("--lot",required=True);tr.add_argument("--units",required=True,type=int)
+    ci=sub.add_parser("complaint-import");ci.add_argument("--db",required=True);ci.add_argument("--input",required=True)
+    cw=sub.add_parser("complaint-watch");cw.add_argument("--db",required=True);cw.add_argument("--threshold",type=int,default=3)
     a=p.parse_args()
     if a.command=="init":
         db=connect(a.db);db.close();print(a.db)
@@ -30,6 +34,8 @@ def main():
     elif a.command=="transfer":
         from .stock import transfer
         print(transfer(a.db,a.id,a.source,a.from_distributor,a.to_distributor,a.lot,a.units))
+    elif a.command=="complaint-import":print(json.dumps(import_complaints(a.db,a.input),ensure_ascii=False))
+    elif a.command=="complaint-watch":print(json.dumps(complaint_watch(a.db,a.threshold),ensure_ascii=False))
     else:
         work=Path(a.workdir or tempfile.mkdtemp(prefix="source-case-"));work.mkdir(parents=True,exist_ok=True)
         fixture=Path(__file__).resolve().parent.parent/"fixtures"
