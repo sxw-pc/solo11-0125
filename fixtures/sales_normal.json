@@ -1,0 +1,13 @@
+{
+  "source_id": "offline-sales-2026-06",
+  "version": 1,
+  "days": [
+    {"product": "P1", "lot_text": "L100", "sale_date": "2026-06-01", "units": 1000, "summary": "D1/D2 sell-through extract 2026-06-01"},
+    {"product": "P1", "lot_text": "L100", "sale_date": "2026-06-02", "units": 1000, "summary": "D1/D2 sell-through extract 2026-06-02"},
+    {"product": "P1", "lot_text": "L100", "sale_date": "2026-06-03", "units": 1000, "summary": "D1/D2 sell-through extract 2026-06-03"},
+    {"product": "P1", "lot_text": "L100", "sale_date": "2026-06-04", "units": 1000, "summary": "D1/D2 sell-through extract 2026-06-04"},
+    {"product": "P1", "lot_text": "L100", "sale_date": "2026-06-05", "units": 1000, "summary": "D1/D2 sell-through extract 2026-06-05"},
+    {"product": "P1", "lot_text": "L100", "sale_date": "2026-06-06", "units": 1000, "summary": "D1/D2 sell-through extract 2026-06-06"},
+    {"product": "P1", "lot_text": "L100", "sale_date": "2026-06-07", "units": 1000, "summary": "D1/D2 sell-through extract 2026-06-07"}
+  ]
+}

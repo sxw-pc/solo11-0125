@@ -29,9 +29,33 @@ def report(db_path,out=None):
     complaint_evidence=[dict(x) for x in db.execute(
         "SELECT source_id,version,digest FROM complaint_source ORDER BY source_id,version"
     )]
+    from .signals import watch_days_view
+    sales_evidence=[dict(x) for x in db.execute(
+        "SELECT source_id,version,digest FROM sales_source ORDER BY source_id,version")]
+    sales_days=[dict(x) for x in db.execute(
+        "SELECT product,lot_text,sale_date,units,summary,source_id,source_version FROM sales_day "
+        "ORDER BY product,lot_text,sale_date")]
+    closeout_evidence=[dict(x) for x in db.execute(
+        "SELECT source_id,version,digest FROM closeout_source ORDER BY source_id,version")]
+    closeout_credentials=[dict(x) for x in db.execute(
+        "SELECT product,lot_text,sale_date,channel,credential_id,closed_at,source_id,source_version "
+        "FROM closeout_credential ORDER BY product,lot_text,sale_date,channel")]
+    watch_charters=[dict(x) for x in db.execute("SELECT * FROM watch_charter ORDER BY product")]
+    watch_decisions=[]
+    for row in db.execute("SELECT * FROM watch_decision ORDER BY product,lot_text,charter,day_index"):
+        entry=dict(row);entry["evidence"]=json.loads(entry["evidence"]);watch_decisions.append(entry)
+    watch_investigations=[dict(x) for x in db.execute(
+        "SELECT * FROM watch_investigation ORDER BY product,lot_text,charter")]
+    watch_review=[dict(x) for x in db.execute("SELECT * FROM watch_review ORDER BY hold_key")]
+    watch_days=watch_days_view(db)
     db.close()
     result={"notices":notices,"cases":cases,"source_evidence":evidence,"source_conflicts":conflicts,
-            "complaint_evidence":complaint_evidence,"auxiliary":auxiliary}
+            "complaint_evidence":complaint_evidence,"auxiliary":auxiliary,
+            "sales_evidence":sales_evidence,"sales_days":sales_days,
+            "closeout_evidence":closeout_evidence,"closeout_credentials":closeout_credentials,
+            "watch_charters":watch_charters,"watch_decisions":watch_decisions,
+            "watch_investigations":watch_investigations,"watch_review":watch_review,
+            "watch_days":watch_days}
     if out:
         target=Path(out);target.parent.mkdir(parents=True,exist_ok=True)
         temp=target.with_name(target.name+".pending")

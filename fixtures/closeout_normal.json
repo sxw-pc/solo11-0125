@@ -1,0 +1,20 @@
+{
+  "source_id": "offline-closeout-2026-06",
+  "version": 1,
+  "credentials": [
+    {"id": "CO-0601-hotline", "product": "P1", "lot_text": "L100", "sale_date": "2026-06-01", "channel": "hotline", "closed_at": "2026-06-01T12:00:00Z"},
+    {"id": "CO-0601-retailer", "product": "P1", "lot_text": "L100", "sale_date": "2026-06-01", "channel": "retailer", "closed_at": "2026-06-01T12:00:00Z"},
+    {"id": "CO-0602-hotline", "product": "P1", "lot_text": "L100", "sale_date": "2026-06-02", "channel": "hotline", "closed_at": "2026-06-02T12:00:00Z"},
+    {"id": "CO-0602-retailer", "product": "P1", "lot_text": "L100", "sale_date": "2026-06-02", "channel": "retailer", "closed_at": "2026-06-02T12:00:00Z"},
+    {"id": "CO-0603-hotline", "product": "P1", "lot_text": "L100", "sale_date": "2026-06-03", "channel": "hotline", "closed_at": "2026-06-03T12:00:00Z"},
+    {"id": "CO-0603-retailer", "product": "P1", "lot_text": "L100", "sale_date": "2026-06-03", "channel": "retailer", "closed_at": "2026-06-03T12:00:00Z"},
+    {"id": "CO-0604-hotline", "product": "P1", "lot_text": "L100", "sale_date": "2026-06-04", "channel": "hotline", "closed_at": "2026-06-04T12:00:00Z"},
+    {"id": "CO-0604-retailer", "product": "P1", "lot_text": "L100", "sale_date": "2026-06-04", "channel": "retailer", "closed_at": "2026-06-04T12:00:00Z"},
+    {"id": "CO-0605-hotline", "product": "P1", "lot_text": "L100", "sale_date": "2026-06-05", "channel": "hotline", "closed_at": "2026-06-05T12:00:00Z"},
+    {"id": "CO-0605-retailer", "product": "P1", "lot_text": "L100", "sale_date": "2026-06-05", "channel": "retailer", "closed_at": "2026-06-05T12:00:00Z"},
+    {"id": "CO-0606-hotline", "product": "P1", "lot_text": "L100", "sale_date": "2026-06-06", "channel": "hotline", "closed_at": "2026-06-06T12:00:00Z"},
+    {"id": "CO-0606-retailer", "product": "P1", "lot_text": "L100", "sale_date": "2026-06-06", "channel": "retailer", "closed_at": "2026-06-06T12:00:00Z"},
+    {"id": "CO-0607-hotline", "product": "P1", "lot_text": "L100", "sale_date": "2026-06-07", "channel": "hotline", "closed_at": "2026-06-07T12:00:00Z"},
+    {"id": "CO-0607-retailer", "product": "P1", "lot_text": "L100", "sale_date": "2026-06-07", "channel": "retailer", "closed_at": "2026-06-07T12:00:00Z"}
+  ]
+}

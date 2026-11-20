@@ -48,7 +48,48 @@ def connect(path):
       id TEXT PRIMARY KEY, source_id TEXT NOT NULL, source_version INTEGER NOT NULL,
       channel TEXT NOT NULL, reported_at TEXT NOT NULL, product TEXT NOT NULL,
       lot_text TEXT NOT NULL, defect_code TEXT NOT NULL, case_ref TEXT NOT NULL,
-      digest TEXT NOT NULL);
+      sold_on TEXT, digest TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS sales_source(
+      source_id TEXT NOT NULL, version INTEGER NOT NULL, digest TEXT NOT NULL,
+      raw BLOB NOT NULL, PRIMARY KEY(source_id,version));
+    CREATE TABLE IF NOT EXISTS sales_conflict(
+      id INTEGER PRIMARY KEY, source_id TEXT NOT NULL, version INTEGER NOT NULL,
+      digest TEXT NOT NULL, reason TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS sales_day(
+      product TEXT NOT NULL, lot_text TEXT NOT NULL, sale_date TEXT NOT NULL,
+      units INTEGER NOT NULL, summary TEXT NOT NULL,
+      source_id TEXT NOT NULL, source_version INTEGER NOT NULL, digest TEXT NOT NULL,
+      PRIMARY KEY(product,lot_text,sale_date));
+    CREATE TABLE IF NOT EXISTS closeout_source(
+      source_id TEXT NOT NULL, version INTEGER NOT NULL, digest TEXT NOT NULL,
+      raw BLOB NOT NULL, PRIMARY KEY(source_id,version));
+    CREATE TABLE IF NOT EXISTS closeout_conflict(
+      id INTEGER PRIMARY KEY, source_id TEXT NOT NULL, version INTEGER NOT NULL,
+      digest TEXT NOT NULL, reason TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS closeout_credential(
+      product TEXT NOT NULL, lot_text TEXT NOT NULL, sale_date TEXT NOT NULL,
+      channel TEXT NOT NULL, credential_id TEXT NOT NULL UNIQUE,
+      closed_at TEXT NOT NULL, source_id TEXT NOT NULL, source_version INTEGER NOT NULL,
+      digest TEXT NOT NULL, PRIMARY KEY(product,lot_text,sale_date,channel));
+    CREATE TABLE IF NOT EXISTS watch_charter(
+      product TEXT PRIMARY KEY, baseline_rate REAL NOT NULL, budget REAL NOT NULL,
+      period_days INTEGER NOT NULL, defined_at TEXT NOT NULL, digest TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS watch_decision(
+      id INTEGER PRIMARY KEY, product TEXT NOT NULL, lot_text TEXT NOT NULL,
+      charter TEXT NOT NULL, day_index INTEGER NOT NULL,
+      numerator INTEGER NOT NULL, denominator INTEGER NOT NULL,
+      tail_probability REAL NOT NULL, budget_share REAL NOT NULL,
+      budget_consumed REAL NOT NULL, baseline_rate REAL NOT NULL,
+      decision TEXT NOT NULL, evaluated_at TEXT NOT NULL, evidence TEXT NOT NULL,
+      UNIQUE(product,lot_text,charter,day_index));
+    CREATE TABLE IF NOT EXISTS watch_investigation(
+      product TEXT NOT NULL, lot_text TEXT NOT NULL, charter TEXT NOT NULL,
+      issued_at TEXT NOT NULL, day_index INTEGER NOT NULL, decision_id INTEGER NOT NULL,
+      PRIMARY KEY(product,lot_text,charter));
+    CREATE TABLE IF NOT EXISTS watch_review(
+      hold_key TEXT PRIMARY KEY, product TEXT NOT NULL, lot_text TEXT NOT NULL,
+      sale_date TEXT NOT NULL, case_ref TEXT NOT NULL, record_id TEXT NOT NULL,
+      reason TEXT NOT NULL, detail TEXT NOT NULL);
     """)
     return db
 

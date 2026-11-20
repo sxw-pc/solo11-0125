@@ -6,8 +6,8 @@ from .adoption import adopt
 from .assessment import assess
 from .settlement import settle
 from .report import report
-from .complaints import import_complaints
-from .signals import complaint_watch
+from .complaints import import_complaints,import_sales,import_closeouts
+from .signals import complaint_watch,define_charter,evaluate_watch
 
 def main():
     p=argparse.ArgumentParser()
@@ -21,6 +21,12 @@ def main():
     tr=sub.add_parser("transfer");tr.add_argument("--db",required=True);tr.add_argument("--id",required=True);tr.add_argument("--source",required=True);tr.add_argument("--from-distributor",required=True);tr.add_argument("--to-distributor",required=True);tr.add_argument("--lot",required=True);tr.add_argument("--units",required=True,type=int)
     ci=sub.add_parser("complaint-import");ci.add_argument("--db",required=True);ci.add_argument("--input",required=True)
     cw=sub.add_parser("complaint-watch");cw.add_argument("--db",required=True);cw.add_argument("--threshold",type=int,default=3)
+    si=sub.add_parser("sales-import");si.add_argument("--db",required=True);si.add_argument("--input",required=True)
+    co=sub.add_parser("closeout-import");co.add_argument("--db",required=True);co.add_argument("--input",required=True)
+    wc=sub.add_parser("watch-charter");wc.add_argument("--db",required=True);wc.add_argument("--product",required=True)
+    wc.add_argument("--baseline",required=True,type=float);wc.add_argument("--budget",required=True,type=float)
+    wc.add_argument("--at",required=True);wc.add_argument("--period-days",type=int,default=7)
+    we=sub.add_parser("watch-evaluate");we.add_argument("--db",required=True);we.add_argument("--at",required=True)
     a=p.parse_args()
     if a.command=="init":
         db=connect(a.db);db.close();print(a.db)
@@ -36,6 +42,11 @@ def main():
         print(transfer(a.db,a.id,a.source,a.from_distributor,a.to_distributor,a.lot,a.units))
     elif a.command=="complaint-import":print(json.dumps(import_complaints(a.db,a.input),ensure_ascii=False))
     elif a.command=="complaint-watch":print(json.dumps(complaint_watch(a.db,a.threshold),ensure_ascii=False))
+    elif a.command=="sales-import":print(json.dumps(import_sales(a.db,a.input),ensure_ascii=False))
+    elif a.command=="closeout-import":print(json.dumps(import_closeouts(a.db,a.input),ensure_ascii=False))
+    elif a.command=="watch-charter":
+        print(json.dumps(define_charter(a.db,a.product,a.baseline,a.budget,a.at,a.period_days),ensure_ascii=False))
+    elif a.command=="watch-evaluate":print(json.dumps(evaluate_watch(a.db,a.at),ensure_ascii=False))
     else:
         work=Path(a.workdir or tempfile.mkdtemp(prefix="source-case-"));work.mkdir(parents=True,exist_ok=True)
         fixture=Path(__file__).resolve().parent.parent/"fixtures"

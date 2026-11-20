@@ -1,0 +1,12 @@
+{
+  "source_id": "offline-complaints-2026-06-rated",
+  "version": 1,
+  "records": [
+    {"id": "R-201", "channel": "hotline", "reported_at": "2026-06-01T09:00:00+08:00", "product": "P1", "lot_text": "L100", "defect_code": "seal", "case_ref": "ref-a", "sold_on": "2026-06-01"},
+    {"id": "R-202", "channel": "retailer", "reported_at": "2026-06-01T09:30:00+08:00", "product": "P1", "lot_text": "L100", "defect_code": "seal", "case_ref": "ref-a", "sold_on": "2026-06-01"},
+    {"id": "R-203", "channel": "hotline", "reported_at": "2026-06-01T10:00:00+08:00", "product": "P1", "lot_text": "L100", "defect_code": "seal", "case_ref": "ref-b", "sold_on": "2026-06-01"},
+    {"id": "R-204", "channel": "retailer", "reported_at": "2026-06-01T10:30:00+08:00", "product": "P1", "lot_text": "L100", "defect_code": "seal", "case_ref": "ref-c", "sold_on": "2026-06-01"},
+    {"id": "R-205", "channel": "hotline", "reported_at": "2026-06-01T11:00:00+08:00", "product": "P1", "lot_text": "L100", "defect_code": "seal", "case_ref": "ref-d", "sold_on": "2026-06-01"},
+    {"id": "R-206", "channel": "retailer", "reported_at": "2026-06-01T11:30:00+08:00", "product": "P1", "lot_text": "L100", "defect_code": "seal", "case_ref": "ref-e", "sold_on": "2026-06-01"}
+  ]
+}
