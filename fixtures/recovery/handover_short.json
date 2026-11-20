@@ -1,0 +1,21 @@
+{
+  "case_id": "case-ab",
+  "handovers": [
+    {
+      "event_key": "ho-short",
+      "version": 1,
+      "origin_distributor": "D1",
+      "from_custodian": "D1",
+      "to_custodian": "S1",
+      "lot": "L-100-A",
+      "amount": 3,
+      "origin_seal": "WH-A",
+      "box_seal": "BX-SHORT",
+      "transport_ref": "TRUCK-2",
+      "released_at": "2026-06-03T08:00:00Z",
+      "received_at": "2026-06-03T15:00:00Z",
+      "release_ref": "DN-SHORT",
+      "receive_ref": "GRN-SHORT"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "case-ab",
+  "handovers": [
+    {
+      "event_key": "ho-seal-1",
+      "version": 1,
+      "origin_distributor": "D2",
+      "from_custodian": "D2",
+      "to_custodian": "S1",
+      "lot": "L-100-A",
+      "amount": 1,
+      "origin_seal": "WH-B",
+      "box_seal": "BX-SEAL",
+      "transport_ref": "TRUCK-4",
+      "released_at": "2026-06-03T08:00:00Z",
+      "received_at": "2026-06-03T14:00:00Z",
+      "release_ref": "DN-SEAL",
+      "receive_ref": "GRN-SEAL"
+    }
+  ]
+}

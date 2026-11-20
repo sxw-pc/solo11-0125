@@ -26,9 +26,14 @@ def report(db_path,out=None):
     conflicts=[dict(x) for x in db.execute("SELECT source_id,revision,digest,reason FROM source_conflict ORDER BY id")]
     auxiliary={name:[dict(x) for x in db.execute(f"SELECT * FROM {name} ORDER BY 1")]
                for name in EXTRA_TABLES if db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",(name,)).fetchone()}
+    recovery={}
+    if db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",(t['agreement'],)).fetchone():
+        from .recovery import recovery_view
+        for row in db.execute(f"SELECT DISTINCT case_id FROM {t['agreement']} ORDER BY case_id"):
+            recovery[row["case_id"]]=recovery_view(db,row["case_id"])
     db.close()
     result={"notices":notices,"cases":cases,"source_evidence":evidence,"source_conflicts":conflicts,
-            "auxiliary":auxiliary}
+            "auxiliary":auxiliary,"recovery":recovery}
     if out:
         target=Path(out);target.parent.mkdir(parents=True,exist_ok=True)
         temp=target.with_name(target.name+".pending")

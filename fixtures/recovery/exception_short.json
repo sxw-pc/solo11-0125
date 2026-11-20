@@ -1,0 +1,9 @@
+{
+  "case_id": "case-ab",
+  "event_key": "ex-short",
+  "handover_key": "ho-short",
+  "kind": "short",
+  "amount": 1,
+  "at": "2026-06-03T15:05:00Z",
+  "evidence_ref": "MEMO-SHORT-1"
+}

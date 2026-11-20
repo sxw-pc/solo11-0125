@@ -1,0 +1,21 @@
+{
+  "case_id": "case-ab",
+  "handovers": [
+    {
+      "event_key": "ho-a-to-b",
+      "version": 1,
+      "origin_distributor": "D1",
+      "from_custodian": "D1",
+      "to_custodian": "D2",
+      "lot": "L-100-A",
+      "amount": 3,
+      "origin_seal": "WH-A",
+      "box_seal": "BX-AB",
+      "transport_ref": "TRUCK-A",
+      "released_at": "2026-06-03T08:00:00Z",
+      "received_at": "2026-06-03T13:00:00Z",
+      "release_ref": "DN-AB",
+      "receive_ref": "GRN-AB"
+    }
+  ]
+}

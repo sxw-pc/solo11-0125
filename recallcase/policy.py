@@ -1,6 +1,8 @@
 """Recall scope, lot lineage and channel withdrawal rules."""
 TABLES={"notice":"recall_notice","revision":"lot_scope","case":"inventory_case",
-"assessment":"lineage_assessment","obligation":"withdrawal_obligation","receipt":"withdrawal_receipt"}
+"assessment":"lineage_assessment","obligation":"withdrawal_obligation","receipt":"withdrawal_receipt",
+"agreement":"recovery_agreement","handover":"recovery_handover","recovery_exception":"recovery_exception",
+"factory_receipt":"factory_receipt","factory_receipt_line":"factory_receipt_line"}
 DEMO={"adopt":"recall_normal.json","assess":"lineage_normal.json","settle":"withdraw_normal.json"}
 EXTRA_TABLES=["stock_lot","transfer_order"]
 def validate_notice(doc):

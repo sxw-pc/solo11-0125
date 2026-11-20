@@ -1,0 +1,11 @@
+{
+  "case_id": "case-ab",
+  "event_key": "ex-seal",
+  "handover_key": "ho-seal-1",
+  "kind": "seal_change",
+  "amount": 0,
+  "prior_seal": "BX-SEAL",
+  "new_seal": "BX-SEAL-R",
+  "at": "2026-06-04T09:00:00Z",
+  "evidence_ref": "SEAL-SWAP-1"
+}

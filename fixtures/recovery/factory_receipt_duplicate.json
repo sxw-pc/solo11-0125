@@ -1,0 +1,17 @@
+{
+  "case_id": "case-ab",
+  "cert_no": "FR-7-DUP",
+  "submitter": "S1",
+  "at": "2026-06-07T10:00:00Z",
+  "version": 1,
+  "lines": [
+    {
+      "origin_distributor": "D1",
+      "custodian": "FACTORY",
+      "lot": "L-100-A",
+      "seal": "BX-A1",
+      "amount": 3,
+      "responsible_party": "S1"
+    }
+  ]
+}

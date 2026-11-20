@@ -1,0 +1,9 @@
+{
+  "case_id": "case-ab",
+  "event_key": "ex-lost",
+  "handover_key": "ho-lost",
+  "kind": "loss",
+  "amount": 2,
+  "at": "2026-06-04T20:00:00Z",
+  "evidence_ref": "POLICE-LOST-2"
+}

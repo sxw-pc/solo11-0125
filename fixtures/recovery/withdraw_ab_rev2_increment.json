@@ -1,0 +1,24 @@
+{
+  "case_id": "case-ab-r2",
+  "at": "2026-06-07T16:00:00Z",
+  "receipts": [
+    {
+      "event_key": "wd-D1-inc",
+      "target": "D1",
+      "at": "2026-06-07T15:00:00Z",
+      "version": 2,
+      "amount": 2,
+      "lot": "L-100-A",
+      "seal": "WH-A2"
+    },
+    {
+      "event_key": "wd-D2-inc",
+      "target": "D2",
+      "at": "2026-06-07T15:30:00Z",
+      "version": 2,
+      "amount": 1,
+      "lot": "L-100-A",
+      "seal": "WH-B2"
+    }
+  ]
+}

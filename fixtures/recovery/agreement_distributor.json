@@ -1,0 +1,6 @@
+{
+  "case_id": "case-ab",
+  "mode": "distributor",
+  "stations": ["S1"],
+  "factory_custodian": "FACTORY"
+}

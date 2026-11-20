@@ -17,6 +17,8 @@ def main():
     d=sub.add_parser("demo");d.add_argument("--workdir")
     sl=sub.add_parser("stock-load");sl.add_argument("--db",required=True);sl.add_argument("--input",required=True)
     tr=sub.add_parser("transfer");tr.add_argument("--db",required=True);tr.add_argument("--id",required=True);tr.add_argument("--source",required=True);tr.add_argument("--from-distributor",required=True);tr.add_argument("--to-distributor",required=True);tr.add_argument("--lot",required=True);tr.add_argument("--units",required=True,type=int)
+    for name in ("recovery-agreement","recovery-handover","recovery-exception","factory-receipt"):
+        cmd=sub.add_parser(name);cmd.add_argument("--db",required=True);cmd.add_argument("--input",required=True)
     a=p.parse_args()
     if a.command=="init":
         db=connect(a.db);db.close();print(a.db)
@@ -30,6 +32,18 @@ def main():
     elif a.command=="transfer":
         from .stock import transfer
         print(transfer(a.db,a.id,a.source,a.from_distributor,a.to_distributor,a.lot,a.units))
+    elif a.command=="recovery-agreement":
+        from .recovery import set_agreement
+        print(json.dumps(set_agreement(a.db,a.input),ensure_ascii=False))
+    elif a.command=="recovery-handover":
+        from .recovery import record_handovers
+        print(json.dumps(record_handovers(a.db,a.input),ensure_ascii=False))
+    elif a.command=="recovery-exception":
+        from .recovery import record_exception
+        print(json.dumps(record_exception(a.db,a.input),ensure_ascii=False))
+    elif a.command=="factory-receipt":
+        from .recovery import record_factory_receipt
+        print(json.dumps(record_factory_receipt(a.db,a.input),ensure_ascii=False))
     else:
         work=Path(a.workdir or tempfile.mkdtemp(prefix="source-case-"));work.mkdir(parents=True,exist_ok=True)
         fixture=Path(__file__).resolve().parent.parent/"fixtures"

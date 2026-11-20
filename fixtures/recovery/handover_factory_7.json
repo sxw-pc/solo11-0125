@@ -1,0 +1,37 @@
+{
+  "case_id": "case-ab",
+  "handovers": [
+    {
+      "event_key": "ho-s-factory",
+      "version": 1,
+      "origin_distributor": "D1",
+      "from_custodian": "S1",
+      "to_custodian": "FACTORY",
+      "lot": "L-100-A",
+      "amount": 3,
+      "origin_seal": "WH-A",
+      "box_seal": "BX-A1",
+      "transport_ref": "TRUCK-9",
+      "released_at": "2026-06-05T08:00:00Z",
+      "received_at": "2026-06-05T18:00:00Z",
+      "release_ref": "DN-SA",
+      "receive_ref": "GRN-FA"
+    },
+    {
+      "event_key": "ho-s-factory-b",
+      "version": 1,
+      "origin_distributor": "D2",
+      "from_custodian": "S1",
+      "to_custodian": "FACTORY",
+      "lot": "L-100-A",
+      "amount": 4,
+      "origin_seal": "WH-B",
+      "box_seal": "BX-B1",
+      "transport_ref": "TRUCK-9",
+      "released_at": "2026-06-05T08:00:00Z",
+      "received_at": "2026-06-05T18:00:00Z",
+      "release_ref": "DN-SB",
+      "receive_ref": "GRN-FB"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "case_id": "case-ab",
+  "event_key": "ex-correct",
+  "handover_key": "ho-short",
+  "kind": "late_correction",
+  "amount": 1,
+  "at": "2026-06-08T09:00:00Z",
+  "evidence_ref": "MEMO-FOUND-1"
+}

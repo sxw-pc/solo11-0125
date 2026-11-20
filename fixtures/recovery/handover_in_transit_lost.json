@@ -1,0 +1,19 @@
+{
+  "case_id": "case-ab",
+  "handovers": [
+    {
+      "event_key": "ho-lost",
+      "version": 1,
+      "origin_distributor": "D2",
+      "from_custodian": "D2",
+      "to_custodian": "S1",
+      "lot": "L-100-A",
+      "amount": 2,
+      "origin_seal": "WH-B",
+      "box_seal": "BX-LOST",
+      "transport_ref": "TRUCK-3",
+      "released_at": "2026-06-04T08:00:00Z",
+      "release_ref": "DN-LOST"
+    }
+  ]
+}

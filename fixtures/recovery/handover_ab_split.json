@@ -1,0 +1,53 @@
+{
+  "case_id": "case-ab",
+  "handovers": [
+    {
+      "event_key": "ho-a1",
+      "version": 1,
+      "origin_distributor": "D1",
+      "from_custodian": "D1",
+      "to_custodian": "S1",
+      "lot": "L-100-A",
+      "amount": 2,
+      "origin_seal": "WH-A",
+      "box_seal": "BX-A1",
+      "transport_ref": "TRUCK-1",
+      "released_at": "2026-06-03T08:00:00Z",
+      "received_at": "2026-06-03T14:00:00Z",
+      "release_ref": "DN-A1",
+      "receive_ref": "GRN-A1"
+    },
+    {
+      "event_key": "ho-a2",
+      "version": 1,
+      "origin_distributor": "D1",
+      "from_custodian": "D1",
+      "to_custodian": "S1",
+      "lot": "L-100-A",
+      "amount": 1,
+      "origin_seal": "WH-A",
+      "box_seal": "BX-A2",
+      "transport_ref": "TRUCK-1",
+      "released_at": "2026-06-03T08:00:00Z",
+      "received_at": "2026-06-03T14:00:00Z",
+      "release_ref": "DN-A2",
+      "receive_ref": "GRN-A2"
+    },
+    {
+      "event_key": "ho-b1",
+      "version": 1,
+      "origin_distributor": "D2",
+      "from_custodian": "D2",
+      "to_custodian": "S1",
+      "lot": "L-100-A",
+      "amount": 4,
+      "origin_seal": "WH-B",
+      "box_seal": "BX-B1",
+      "transport_ref": "TRUCK-1",
+      "released_at": "2026-06-03T09:00:00Z",
+      "received_at": "2026-06-03T14:30:00Z",
+      "release_ref": "DN-B1",
+      "receive_ref": "GRN-B1"
+    }
+  ]
+}
